@@ -3,15 +3,11 @@ package com.qa.business.service;
 import javax.inject.Inject;
 
 import com.qa.persistance.repository.ClassroomRepository;
-import com.qa.util.JSONUtil;
 
 public class ClassroomServiceImplementation implements ClassroomService {
 
 	@Inject
 	private ClassroomRepository repo;
-
-	@Inject
-	private JSONUtil util;
 
 	@Override
 	public String getAllTrainees() {
