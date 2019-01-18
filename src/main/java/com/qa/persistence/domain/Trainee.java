@@ -6,17 +6,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 @Entity
+@Table(name="trainee")
 public class Trainee {
 	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
+	
 	private long traineeID;
 	@Size(min=2, max=40)
 	//@ManyToOne Classroom classroom;
-	//@JoinColumn
+	@JoinColumn(name="traineeName")
 	private String traineeName;
 
 	public Trainee() {

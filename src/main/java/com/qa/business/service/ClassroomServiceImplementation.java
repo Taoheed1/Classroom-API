@@ -21,7 +21,6 @@ public class ClassroomServiceImplementation implements ClassroomService {
 
 	@Override
 	public String deleteTrainee(long traineeID) {
-		// TODO Auto-generated method stub
 		return repo.deleteTrainee(traineeID);
 	}
 
