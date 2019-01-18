@@ -38,11 +38,11 @@ public class ClassroomDBRepository implements ClassroomRepository {
 
 	@Override
 	@Transactional(REQUIRED)
-	public String addNewTrainee(String trainee) {
+	public String addNewTrainee(String traineeJSON) {
 
-		Classroom aClassroom = util.getObjectForJSON(trainee, Classroom.class);
-		manager.persist(aClassroom);
-		return "{\"message\": \"account has been sucessfully added\"}";
+		Trainee trainee = util.getObjectForJSON(traineeJSON, Trainee.class);
+		manager.persist(trainee);
+		return "{\"message\": \"trainee has been sucessfully added\"}";
 	}
 
 	@Override
@@ -56,9 +56,10 @@ public class ClassroomDBRepository implements ClassroomRepository {
 		return "{\"message\": \"classroom does not exist\"}";
 	}
 
+	//join needed her or something
 	@Override
 	@Transactional(REQUIRED)
-	public String updateClassroom(Long id, String trainee) {
+	public String updateClassroom(Long id, String traineeJSON) {
 		Classroom classroomInDB = findClassroom(id);
 		if (classroomInDB != null) {
 			manager.persist(classroomInDB);
@@ -70,7 +71,7 @@ public class ClassroomDBRepository implements ClassroomRepository {
 
 	@Override
 	@Transactional(REQUIRED)
-	public String updateTrainee(Long id, String trainee) {
+	public String updateTrainee(Long id, String traineeJSON) {
 		Trainee traineeInDB = findTrainee(id);
 		if (traineeInDB != null) {
 			manager.persist(traineeInDB);

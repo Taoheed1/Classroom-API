@@ -26,10 +26,10 @@ public class Classroom {
 	public Classroom() {
 	}
 
-	public Classroom(long classroomID, String trainerName, String trainee) {
+	public Classroom(long classroomID, String trainerName, String traineeName) {
 		this.classroomID = classroomID;
 		this.trainerName = trainerName;
-		this.trainee = trainee;
+		this.trainee = traineeName;
 	}
 
 	public long getClassroomID() {
@@ -48,11 +48,11 @@ public class Classroom {
 		this.trainerName = trainerName;
 	}
 
-	public String getTrainees() {
+	public String getTrainee() {
 		return trainee;
 	}
 
-	public void setTrainees(String trainee) {
-		this.trainee = trainee;
+	public void setTrainee(String traineeName) {
+		this.trainee = traineeName;
 	}
 }
