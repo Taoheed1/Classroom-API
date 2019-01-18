@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -14,7 +13,6 @@ public class Trainee {
 	@Id
 	private long traineeID;
 	@Size(min=2, max=40)
-	@ManyToOne Classroom classroom;
 	private String traineeName;
 
 	public Trainee() {
