@@ -16,7 +16,7 @@ public class Trainee {
 	private long traineeID;
 	@Size(min=2, max=40)
 	//@ManyToOne Classroom classroom;
-	@JoinColumn
+	//@JoinColumn
 	private String traineeName;
 
 	public Trainee() {
