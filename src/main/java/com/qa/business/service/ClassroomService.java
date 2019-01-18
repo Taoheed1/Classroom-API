@@ -6,9 +6,9 @@ public interface ClassroomService {
 
 	String addNewTrainee(String trainee);
 
-	String deleteTrainee(long id);
+	String deleteTrainee(long traineeID);
 
-	String updateClassroom(long id, String classroom);
+	String updateClassroom(long classroomID, String classroom);
 
-	String updateTrainee(long id, String trainee);
+	String updateTrainee(long traineeID, String trainee);
 }
