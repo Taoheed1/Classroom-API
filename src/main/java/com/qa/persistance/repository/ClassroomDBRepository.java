@@ -26,6 +26,7 @@ public class ClassroomDBRepository implements ClassroomRepository {
 	@Inject
 	private JSONUtil util;
 
+	//all the methods dealing with the trainee entity will need to explicitly call trainee objects as they are the owners of their own data (take control off your own future trainee san)
 	@Override
 	@Transactional(REQUIRED)
 	// JOIN REQUIRED
