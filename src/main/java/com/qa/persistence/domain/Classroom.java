@@ -3,24 +3,26 @@ package com.qa.persistence.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
 @Entity
 public class Classroom {
 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
 	private long classroomID;
 	@Size(min = 2, max = 40)
 	private String trainerName;
-	private String trainees;
+	private String trainee;
 
 	public Classroom() {
 	}
 
-	public Classroom(long classroomID, String trainerName, String trainees) {
+	public Classroom(long classroomID, String trainerName, String trainee) {
 		this.classroomID = classroomID;
 		this.trainerName = trainerName;
-		this.trainees = trainees;
+		this.trainee = trainee;
 	}
 
 	public long getClassroomID() {
@@ -40,10 +42,10 @@ public class Classroom {
 	}
 
 	public String getTrainees() {
-		return trainees;
+		return trainee;
 	}
 
-	public void setTrainees(String trainees) {
-		this.trainees = trainees;
+	public void setTrainees(String trainee) {
+		this.trainee = trainee;
 	}
 }
