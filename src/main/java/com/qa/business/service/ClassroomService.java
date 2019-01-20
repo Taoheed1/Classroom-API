@@ -4,11 +4,11 @@ public interface ClassroomService {
 
 	String getAllTrainees();
 
-	String addNewTrainee(String traineeJSON);
+	String addNewTrainee(String trainee);
 
-	String deleteTrainee(Long id);
+	String deleteTrainee(long traineeID);
 
-	String updateClassroom(Long id, String classroom);
+	String updateClassroom(long classroomID, String classroom);
 
-	String updateTrainee(Long id, String traineeJSON);
+	String updateTrainee(long traineeID, String trainee);
 }

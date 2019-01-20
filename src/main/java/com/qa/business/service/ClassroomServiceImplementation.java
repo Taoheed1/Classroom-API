@@ -20,19 +20,18 @@ public class ClassroomServiceImplementation implements ClassroomService {
 	}
 
 	@Override
-	public String deleteTrainee(Long id) {
-		// TODO Auto-generated method stub
-		return repo.deleteTrainee(id);
+	public String deleteTrainee(long traineeID) {
+		return repo.deleteTrainee(traineeID);
 	}
 
 	@Override
-	public String updateClassroom(Long id, String classroom) {
-		return repo.updateClassroom(id, classroom);
+	public String updateClassroom(long classroomID, String classroom) {
+		return repo.updateClassroom(classroomID, classroom);
 	}
 
 	@Override
-	public String updateTrainee(Long id, String trainee) {
-		return repo.updateTrainee(id, trainee);
+	public String updateTrainee(long traineeID, String trainee) {
+		return repo.updateTrainee(traineeID, trainee);
 	}
 
 }

@@ -31,35 +31,34 @@ public class ClassroomDBRepository implements ClassroomRepository {
 	// JOIN REQUIRED
 	public String getAllTrainees() {
 		Query query = manager.createQuery("Select a FROM Classroom a");
-		Collection<Classroom> classroom = (Collection<Classroom>) query.getResultList();
-		return util.getJSONForObject(classroom);
+		Collection<Trainee> trainee = (Collection<Trainee>) query.getResultList();
+		return util.getJSONForObject(trainee);
 	}
 
 	@Override
 	@Transactional(REQUIRED)
-	public String addNewTrainee(String traineeJSON) {
+	public String addNewTrainee(String trainee) {
 
-		Trainee trainee = util.getObjectForJSON(traineeJSON, Trainee.class);
-		manager.persist(trainee);
-		return "{\"message\": \"trainee has been sucessfully added\"}";
+		Trainee aTrainee = util.getObjectForJSON(trainee, Trainee.class);
+		manager.persist(aTrainee);
+		return "{\"message\": \"account has been sucessfully added\"}";
 	}
 
 	@Override
 	@Transactional(REQUIRED)
-	public String deleteTrainee(Long id) {
-		Classroom classroomInDB = findClassroom(id);
-		if (classroomInDB != null) {
-			manager.remove(classroomInDB);
+	public String deleteTrainee(long traineeID) {
+		Trainee traineeInDB = findTrainee(traineeID);
+		if (traineeInDB != null) {
+			manager.remove(traineeInDB);
 			return "{\"message\": \"classroom sucessfully deleted\"}";
 		}
 		return "{\"message\": \"classroom does not exist\"}";
 	}
 
-	//join needed her or something
 	@Override
 	@Transactional(REQUIRED)
-	public String updateClassroom(Long id, String traineeJSON) {
-		Classroom classroomInDB = findClassroom(id);
+	public String updateClassroom(long classroomID, String trainee) {
+		Classroom classroomInDB = findClassroom(classroomID);
 		if (classroomInDB != null) {
 			manager.persist(classroomInDB);
 			manager.remove(classroomInDB);
@@ -70,8 +69,8 @@ public class ClassroomDBRepository implements ClassroomRepository {
 
 	@Override
 	@Transactional(REQUIRED)
-	public String updateTrainee(Long id, String traineeJSON) {
-		Trainee traineeInDB = findTrainee(id);
+	public String updateTrainee(long traineeID, String trainee) {
+		Trainee traineeInDB = findTrainee(traineeID);
 		if (traineeInDB != null) {
 			manager.persist(traineeInDB);
 			manager.remove(traineeInDB);
@@ -83,7 +82,7 @@ public class ClassroomDBRepository implements ClassroomRepository {
 	private Classroom findClassroom(Long classroomID) {
 		return manager.find(Classroom.class, classroomID);
 	}
-	private Trainee findTrainee(Long traineeID) {
+	private Trainee findTrainee(long traineeID) {
 		return manager.find(Trainee.class, traineeID);
 	}
 
